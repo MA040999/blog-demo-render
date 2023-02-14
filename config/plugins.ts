@@ -1,4 +1,19 @@
 module.exports = ({ env }) => ({
+  "cloudflare-pages": {
+    enabled: true,
+    config: {
+      instances: [
+        {
+          name: "production website",
+          hook_url: env("CLOUDFLARE_DEPLOY_HOOK_URL"),
+        },
+        {
+          name: "preview website",
+          hook_url: env("CLOUDFLARE_DEPLOY_HOOK_URL"),
+        },
+      ],
+    },
+  },
   upload: {
     config: {
       provider: "cloudinary",
